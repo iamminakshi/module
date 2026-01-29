@@ -1,0 +1,11 @@
+resource "azurerm_resource_group" "this" {
+  name     = "${var.resource_group_name}-${var.environment}-${var.location}"
+  location = var.location
+
+  tags = merge(
+    {
+      environment = var.environment
+    },
+    var.tags
+  )
+}
